@@ -23,10 +23,12 @@ body {
 
 body.correct {
     --hue: var(--hue-correct);
+    background-color:green;
 }
 
 body.wrong {
     --hue: var(--hue-wrong);
+    background-color: red;
 }
 
 .container {
