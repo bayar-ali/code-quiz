@@ -1,3 +1,6 @@
+
+// my variables
+
 var startButton = document.getElementById("start-btn")
 var nextButton = document.getElementById("next-btn")
 var questionContainerElement = document.getElementById("question-container")
@@ -12,6 +15,8 @@ nextButton.addEventListener("click", () => {
     setNextQuestion()
 })
 
+
+// my functions
 
 function startGame() {
     console.log("started")
@@ -58,7 +63,7 @@ function selectAnswer(e) {
     var correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
     Array.from(answerbuttonsElement.children).forEach(button => {
-        setsStatusClass(button, button.dataset.correct)
+        setStatusClass(button, button.dataset.correct)
     })
     if (shuffleQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide")
@@ -82,12 +87,30 @@ function clearStatusClass(element) {
     element.classList.remove("wrong")
 }
 
+// questions and and asnwers
+
 var questions = [
     {
         question: "what is 3 + 4?",
         answers: [
             { text: "7", correct: true },
             { text: "25", correct: false }
+        ]
+        
+    },
+    {
+        question: "what is 12 + 4?",
+        answers: [
+            { text: "16", correct: true },
+            { text: "17", correct: false }
+        ]
+        
+    },
+    {
+        question: "what is 3 + 97?",
+        answers: [
+            { text: "100", correct: true },
+            { text: "99", correct: false }
         ]
         
     },
@@ -108,5 +131,42 @@ var questions = [
         {text: "Application Interface", correct: true},
         { text: "set an array", correct: false }
     ]
-}
+},
+{
+    question: "what is a Function?",
+    answers: [
+        { text: "stands for localstorage", correct: false},
+        { text: "its a API", correct: false},
+        { text: "A block of code that is going to be repeaded or used more than once", correct: true},
+        { text: "set an array", correct: false }
+    ]
+},
+{
+    question: "what is the purpose of client-side storage?",
+    answers: [
+        { text: "stands for localstorage", correct: false},
+        { text: " to store a little information that will save not restart when you refresh the page", correct: true},
+        { text: "A block of code that is going to be repeaded or used more than once", correct: false},
+        { text: "set an array", correct: false }
+    ]
+},
+{
+    question: "what are 3 fundmental concepts of programing?",
+    answers: [
+        { text: "Variables", correct: false},
+        { text: " control Structure", correct: false},
+        { text: "Data structure ", correct: false},
+        { text: "All of above", correct: true},
+     
+    ]
+},
+{
+    question: "what is the purpose of client-side storage?",
+    answers: [
+        { text: "stands for localstorage", correct: false},
+        { text: " to store a little information that will save not restart when you refresh the page", correct: true},
+        { text: "A block of code that is going to be repeaded or used more than once", correct: false},
+        { text: "set an array", correct: false }
+    ]
+},
 ]
