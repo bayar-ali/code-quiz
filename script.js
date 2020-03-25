@@ -6,6 +6,10 @@ var nextButton = document.getElementById("next-btn")
 var questionContainerElement = document.getElementById("question-container")
 var questionElement = document.getElementById("question")
 var answerbuttonsElement = document.getElementById("answer-buttons")
+var startingMinutes = 10; 
+var time = startingMinutes = 60; 
+var countDownElement = document.getElementById("countdown")
+
 
 var shuffleQuestions, currentQuestionIndex
 
@@ -18,8 +22,22 @@ nextButton.addEventListener("click", () => {
 
 // my functions
 
+setInterval(updateCountDown, 1000);
+
+function updateCountDown() {
+var minutes = Math.floor(time / 60); 
+var seconds = time % 10; 
+
+seconds = seconds < 10 ? "0" + seconds : seconds; 
+
+countDownElement.innerHTML = `${minutes}:${seconds}`; 
+    time--; 
+}
+
+
+
 function startGame() {
-    console.log("started")
+   /*  console.log("started") */
     startButton.classList.add("hide")
     shuffleQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -30,7 +48,7 @@ function startGame() {
 
 function setNextQuestion() {
     resetState()
-    showQuestion(shuffleQuestions[currentQuestionIndex])
+     showQuestion(shuffleQuestions[currentQuestionIndex]) 
 }
 
 function showQuestion(question) {
@@ -52,7 +70,8 @@ function resetState() {
     clearStatusClass(document.body)
     nextButton.classList.add("hide")
     while (answerbuttonsElement.firstChild) {
-        answerbuttonsElement.removeChild(answerbuttonsElement.firstChild)
+        answerbuttonsElement.removeChild
+        (answerbuttonsElement.firstChild)
     }
 }
 
